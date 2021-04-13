@@ -1,0 +1,25 @@
+.sidebar__option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.1s;
+  padding: 10px 15px;
+  border-radius: 50px;
+  margin: 12px 0;
+  margin-right: 20px;
+  width: 70%;
+}
+.sidebar__option:hover {
+  color: #1da1f2;
+  background-color: #f5f8fa;
+}
+.sidebar__option > h1 {
+  font-size: 1.25rem;
+  margin-left: 20px;
+}
+.sidebar__option > span {
+  padding-top: 5px;
+}
+.sidebar__active {
+  color: #1da1f2;
+}
