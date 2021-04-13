@@ -5,6 +5,8 @@ import "./App.css";
 
 // component
 import Sidebar from "./Component/Sidebar";
+import PostSection from "./Component/PostSection";
+import Widget from "./Component/Widget";
 
 const App = () => {
   return (
@@ -13,7 +15,10 @@ const App = () => {
       <Sidebar />
 
       {/* post section */}
+      <PostSection />
+
       {/* widgets */}
+      <Widget />
     </div>
   );
 };

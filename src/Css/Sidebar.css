@@ -1,12 +1,12 @@
 .sidebar {
   flex: 0.3;
-  border-right: 1px solid #e1e8ed;
+  border-right: 1px solid #ebeef0;
 }
 
 .sidebar__twitter__icon {
   font-size: 2rem !important;
   color: #1da1f2;
-  margin: 20px 14px 5px;
+  margin: 20px 14px 10px;
 }
 
 .sidebar__tweet__button {

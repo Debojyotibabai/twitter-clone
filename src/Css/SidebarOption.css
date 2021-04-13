@@ -5,7 +5,8 @@
   transition: color 0.1s;
   padding: 10px 15px;
   border-radius: 50px;
-  margin: 12px 0;
+  margin: 5px 0;
+  /* margin: 12px 0; */
   margin-right: 20px;
   width: 70%;
 }
