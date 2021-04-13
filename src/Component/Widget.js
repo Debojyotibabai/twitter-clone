@@ -10,6 +10,7 @@ import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 import {
   TwitterTimelineEmbed,
   TwitterShareButton,
+  TwitterMomentShare,
   TwitterVideoEmbed,
 } from "react-twitter-embed";
 
@@ -20,12 +21,13 @@ const Widget = () => {
         <SearchOutlinedIcon />
         <input type="text" placeholder="Search Twitter" />
       </div>
-      <TwitterVideoEmbed id={"560070183650213889"} />
       <TwitterTimelineEmbed
         sourceType="profile"
         screenName="elonmusk"
         options={{ height: 400 }}
       />
+      <TwitterVideoEmbed id={"560070183650213889"} />
+      <TwitterMomentShare momentId={"650667182356082688"} />
       <TwitterShareButton
         url={"https://www.facebook.com/profile.php?id=100008004977942"}
         options={{

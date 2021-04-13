@@ -7,7 +7,6 @@
 .widget::-webkit-scrollbar {
   display: none;
 }
-
 .widget > .widget__serchbar {
   background-color: #ebeef0;
   display: flex;
@@ -23,6 +22,7 @@
   background: transparent;
   margin-left: 15px;
   font-weight: lighter;
+  width: 100%;
 }
 .widget > .widget__serchbar > input::placeholder {
   font-size: 0.9rem;
