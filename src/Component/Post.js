@@ -14,7 +14,7 @@ import RedoOutlinedIcon from "@material-ui/icons/RedoOutlined";
 import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import PublishOutlinedIcon from "@material-ui/icons/PublishOutlined";
 
-const Post = () => {
+const Post = (props) => {
   return (
     // main post
     <div className="post">
@@ -23,7 +23,7 @@ const Post = () => {
         <Avatar
           className="post__details__section__avatar"
           alt="Remy Sharp"
-          src="https://pbs.twimg.com/profile_images/843141846960287744/QBgcs-ZD_400x400.jpg"
+          src={props.avatar}
         />
 
         {/* post details */}
@@ -31,7 +31,7 @@ const Post = () => {
           {/* post details header */}
           <div className="post__header">
             <h1>
-              Debojyoti Ghosh <span>@debojyotibabai1</span>
+              {props.name} <span>{props.userName}</span>
             </h1>
             <IconButton aria-label="Delete" className="post__delete">
               <DeleteIcon fontSize="small" />
@@ -39,18 +39,10 @@ const Post = () => {
           </div>
 
           {/* post text */}
-          <h2>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as opposed to using 'Content here,
-          </h2>
+          <h2>{props.text}</h2>
 
           {/* post image */}
-          <img
-            src="https://images.unsplash.com/photo-1611095564350-2cbe940a8d99?ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-            alt=""
-          />
+          <img src={props.image} alt="" />
         </div>
       </div>
 
