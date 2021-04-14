@@ -16,11 +16,15 @@ import {
 
 const Widget = () => {
   return (
+    // main widget section
     <div className="widget">
+      {/* widget search */}
       <div className="widget__serchbar">
         <SearchOutlinedIcon />
         <input type="text" placeholder="Search Twitter" />
       </div>
+
+      {/* widget */}
       <TwitterTimelineEmbed
         sourceType="profile"
         screenName="elonmusk"

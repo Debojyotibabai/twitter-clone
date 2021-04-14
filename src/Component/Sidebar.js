@@ -31,6 +31,7 @@ const Sidebar = () => {
   ]);
 
   return (
+    // main sidebar section
     <div className="sidebar">
       <TwitterIcon className="sidebar__twitter__icon" />
 

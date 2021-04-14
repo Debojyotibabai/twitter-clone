@@ -10,6 +10,7 @@ import Widget from "./Component/Widget";
 
 const App = () => {
   return (
+    // main section
     <div className="main__section">
       {/* sidebar */}
       <Sidebar />
