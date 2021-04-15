@@ -82,7 +82,7 @@ const PostSection = () => {
           <input
             onChange={getTweetImage}
             type="text"
-            placeholder="Any image link?"
+            placeholder="Any image link..."
             value={tweetImage}
           />
           <button
