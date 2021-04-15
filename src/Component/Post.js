@@ -33,7 +33,11 @@ const Post = (props) => {
             <h1>
               {props.name} <span>{props.userName}</span>
             </h1>
-            <IconButton aria-label="Delete" className="post__delete">
+            <IconButton
+              aria-label="Delete"
+              className="post__delete"
+              onClick={props.deleteTwitter}
+            >
               <DeleteIcon fontSize="small" />
             </IconButton>
           </div>

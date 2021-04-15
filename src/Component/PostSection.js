@@ -19,6 +19,7 @@ const PostSection = () => {
 
   // posts
   const [posts, setPosts] = useState([]);
+  console.log(posts);
 
   // get input values
   const getTweetText = (e) => {
@@ -45,9 +46,18 @@ const PostSection = () => {
   // set posts value from firebase db
   useEffect(() => {
     db.collection("post").onSnapshot((snapshot) =>
-      setPosts(snapshot.docs.map((doc) => doc.data()))
+      setPosts(
+        snapshot.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        })
+      )
     );
   }, []);
+
+  // delete tweet
+  const deleteIt = (id) => {
+    db.collection("post").doc(id).delete();
+  };
 
   return (
     // main post section
@@ -88,15 +98,16 @@ const PostSection = () => {
 
       {/* all post */}
       <div className="all__post">
-        {posts.map((eachPost, eachPostIndex) => {
+        {posts.map((eachPost) => {
           return (
             <Post
-              key={eachPostIndex}
+              key={eachPost.id}
               avatar={eachPost.avatar}
               name={eachPost.name}
               userName={eachPost.userName}
               text={eachPost.text}
               image={eachPost.image}
+              deleteTwitter={deleteIt.bind(this, eachPost.id)}
             />
           );
         })}
