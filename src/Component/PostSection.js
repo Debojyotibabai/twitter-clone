@@ -19,7 +19,6 @@ const PostSection = () => {
 
   // posts
   const [posts, setPosts] = useState([]);
-  console.log(posts);
 
   // get input values
   const getTweetText = (e) => {
