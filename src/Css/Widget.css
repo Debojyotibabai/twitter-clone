@@ -34,3 +34,19 @@
 .widget > .widget__serchbar > .MuiSvgIcon-root {
   color: #5b7083;
 }
+
+/* widget containers */
+.widget__container {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f7f9fa;
+  border-radius: 10px;
+  border: 1px solid #e1e8ed;
+}
+
+.widget__container h3 {
+  margin: 0 0 15px 0;
+  color: #14171a;
+  font-size: 1.1rem;
+  font-weight: bold;
+}

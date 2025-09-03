@@ -11,6 +11,15 @@ import Post from "./Post";
 
 // firebase db
 import db from "../firebase";
+import { 
+  collection, 
+  addDoc, 
+  onSnapshot, 
+  deleteDoc, 
+  doc, 
+  orderBy, 
+  query 
+} from "firebase/firestore";
 
 const PostSection = () => {
   // tweet input values
@@ -29,33 +38,47 @@ const PostSection = () => {
   };
 
   // tweet button function
-  const tweet = () => {
-    db.collection("post").add({
-      avatar:
-        "https://pbs.twimg.com/profile_images/843141846960287744/QBgcs-ZD_400x400.jpg",
-      image: tweetImage,
-      name: "Debojyoti Ghosh",
-      text: tweetText,
-      userName: "@debojyotibabai1",
-    });
-    setTwitterText("");
-    setTwitterImage("");
+  const tweet = async () => {
+    try {
+      await addDoc(collection(db, "post"), {
+        avatar:
+          "https://pbs.twimg.com/profile_images/843141846960287744/QBgcs-ZD_400x400.jpg",
+        image: tweetImage,
+        name: "Debojyoti Ghosh",
+        text: tweetText,
+        userName: "@debojyotibabai1",
+        timestamp: new Date(),
+      });
+      setTwitterText("");
+      setTwitterImage("");
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
   };
 
   // set posts value from firebase db
   useEffect(() => {
-    db.collection("post").onSnapshot((snapshot) =>
+    const q = query(collection(db, "post"), orderBy("timestamp", "desc"));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
       setPosts(
         snapshot.docs.map((doc) => {
           return { ...doc.data(), id: doc.id };
         })
-      )
-    );
+      );
+    }, (error) => {
+      console.error("Error fetching posts: ", error);
+    });
+
+    return () => unsubscribe();
   }, []);
 
   // delete tweet
-  const deleteIt = (id) => {
-    db.collection("post").doc(id).delete();
+  const deleteIt = async (id) => {
+    try {
+      await deleteDoc(doc(db, "post", id));
+    } catch (error) {
+      console.error("Error deleting document: ", error);
+    }
   };
 
   return (
@@ -88,7 +111,7 @@ const PostSection = () => {
           <button
             onClick={tweet}
             className="tweet__button"
-            disabled={tweetText !== "" ? false : true}
+            disabled={tweetText === ""}
           >
             Tweet
           </button>

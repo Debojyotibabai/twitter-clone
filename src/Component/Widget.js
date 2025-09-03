@@ -6,12 +6,10 @@ import "../Css/Widget.css";
 // icon
 import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 
-// twitter embed
+// twitter embed - only use supported components
 import {
   TwitterTimelineEmbed,
-  TwitterShareButton,
-  TwitterMomentShare,
-  TwitterVideoEmbed,
+  TwitterTweetEmbed,
 } from "react-twitter-embed";
 
 const Widget = () => {
@@ -24,21 +22,22 @@ const Widget = () => {
         <input type="text" placeholder="Search Twitter" />
       </div>
 
-      {/* widget */}
-      <TwitterTimelineEmbed
-        sourceType="profile"
-        screenName="elonmusk"
-        options={{ height: 400 }}
-      />
-      <TwitterVideoEmbed id={"560070183650213889"} />
-      <TwitterMomentShare momentId={"650667182356082688"} />
-      <TwitterShareButton
-        url={"https://www.facebook.com/profile.php?id=100008004977942"}
-        options={{
-          text: "Can you be a Web Developer?",
-          via: "debojyotibabai1",
-        }}
-      />
+      {/* widget - using only supported timeline types */}
+      <div className="widget__container">
+        <h3>Twitter Timeline</h3>
+        <TwitterTimelineEmbed
+          sourceType="profile"
+          screenName="elonmusk"
+          options={{ height: 400 }}
+        />
+      </div>
+
+      <div className="widget__container">
+        <h3>Featured Tweet</h3>
+        <TwitterTweetEmbed
+          tweetId={'933354946111705097'}
+        />
+      </div>
     </div>
   );
 };
