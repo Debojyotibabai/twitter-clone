@@ -7,10 +7,7 @@ import "../Css/Widget.css";
 import SearchOutlinedIcon from "@material-ui/icons/SearchOutlined";
 
 // twitter embed - only use supported components
-import {
-  TwitterTimelineEmbed,
-  TwitterTweetEmbed,
-} from "react-twitter-embed";
+import { TwitterTimelineEmbed, TwitterTweetEmbed } from "react-twitter-embed";
 
 const Widget = () => {
   return (
@@ -34,9 +31,7 @@ const Widget = () => {
 
       <div className="widget__container">
         <h3>Featured Tweet</h3>
-        <TwitterTweetEmbed
-          tweetId={'933354946111705097'}
-        />
+        <TwitterTweetEmbed tweetId={"933354946111705097"} />
       </div>
     </div>
   );

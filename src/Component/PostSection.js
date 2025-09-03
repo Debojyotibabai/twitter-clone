@@ -11,14 +11,14 @@ import Post from "./Post";
 
 // firebase db
 import db from "../firebase";
-import { 
-  collection, 
-  addDoc, 
-  onSnapshot, 
-  deleteDoc, 
-  doc, 
-  orderBy, 
-  query 
+import {
+  collection,
+  addDoc,
+  onSnapshot,
+  deleteDoc,
+  doc,
+  orderBy,
+  query,
 } from "firebase/firestore";
 
 const PostSection = () => {
@@ -59,15 +59,19 @@ const PostSection = () => {
   // set posts value from firebase db
   useEffect(() => {
     const q = query(collection(db, "post"), orderBy("timestamp", "desc"));
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      setPosts(
-        snapshot.docs.map((doc) => {
-          return { ...doc.data(), id: doc.id };
-        })
-      );
-    }, (error) => {
-      console.error("Error fetching posts: ", error);
-    });
+    const unsubscribe = onSnapshot(
+      q,
+      (snapshot) => {
+        setPosts(
+          snapshot.docs.map((doc) => {
+            return { ...doc.data(), id: doc.id };
+          })
+        );
+      },
+      (error) => {
+        console.error("Error fetching posts: ", error);
+      }
+    );
 
     return () => unsubscribe();
   }, []);
